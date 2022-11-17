@@ -1,7 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { getStatusFilter } from 'redux/selectors';
 import { getStatusContacts } from 'redux/selectors';
-// import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 
 import { Form } from './Form/Form';
