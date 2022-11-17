@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getStatusFilter } from 'redux/selectors';
 import { nanoid } from 'nanoid';
 import Notiflix from 'notiflix';
 
@@ -6,14 +8,23 @@ import { Form } from './Form/Form';
 import { ContactList } from './ContactsList/ContactsList';
 import { Filter } from './Filter/Filter';
 import { Title } from './ContactsList/ContactsListStyled';
+import { contactsFilter } from 'redux/filterSlice';
 
 const LOCALE_STORAGE_KEY = 'AddedContacts'
 
 export function App() {
+
+  const dispatch = useDispatch();
+  const filter = useSelector(getStatusFilter);
+
+
+
+
+
+
     const [contacts, setContacts] = useState(
       JSON.parse(localStorage.getItem(LOCALE_STORAGE_KEY)) ?? []
     );
-  const [filter, setFilter] = useState('');
 
   const addContact = contact => {
     if (hasAlreadyAdded(contact)) {
@@ -36,7 +47,7 @@ export function App() {
 
   const handleChange = e => {
     const { value } = e.target
-    setFilter(value)
+    dispatch(contactsFilter(value));
   };
 
   const onFilter = () => {
