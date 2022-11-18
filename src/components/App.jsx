@@ -25,7 +25,7 @@ export function App() {
   };
 
   const hasAlreadyAdded = ({ name }) =>
-    contacts.find(el => el.name.toLowerCase() === name.toLowerCase());
+    contacts.contacts.find(el => el.name.toLowerCase() === name.toLowerCase());
 
   const handleChange = e => {
     const { value } = e.target;
@@ -48,13 +48,11 @@ export function App() {
     dispatch(deleteOneContact(name));
   };
 
-  console.log(contacts);
-
   return (
     <div>
       <Title>Phonebook</Title>
       <Form onSubmit={addContact} />
-      {contacts.length > 0 && (
+      {contacts.contacts.length > 0 && (
         <>
           <Title>Contacts</Title>
           <ContactList

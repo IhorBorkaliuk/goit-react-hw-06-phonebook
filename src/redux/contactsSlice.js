@@ -8,7 +8,7 @@ const contactsSlice = createSlice({
   initialState: initialContactsState,
   reducers: {
     addOneContact(state, action) {
-      state.contacts.push({
+      state.push({
         id: nanoid(),
         ...action.payload,
       });

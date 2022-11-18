@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Button, List, ListItem } from './ContactsListStyled';
 
 export function ContactList({ data, deleteFromContacts }) {
-  const items = data.map(({ name, number, id }) => {
+  const contactsArray = data.contacts;
+  console.log(data)
+  const items = contactsArray.map(({ name, number, id }) => {
     return (
       <ListItem key={id}>
         Name: {name} Number: {number}
@@ -18,12 +20,6 @@ export function ContactList({ data, deleteFromContacts }) {
 
 
 ContactList.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.exact({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired
-  ),
+  data: PropTypes.objectOf(PropTypes.any)
 };
 
