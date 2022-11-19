@@ -11,7 +11,7 @@ import { ContactList } from 'components/ContactsList/ContactsList';
 
 
 
-export const Filter = ({ value }) => {
+export const Filter = () => {
 
   const filter = useSelector(getStatusFilter)
   const contacts = useSelector(getStatusContacts);

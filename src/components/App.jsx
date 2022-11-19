@@ -1,42 +1,17 @@
-import Notiflix from 'notiflix';
-
 import { Filter } from './Filter/Filter';
 import { Title } from './ContactsList/ContactsListStyled';
 import { Form } from './Form/Form';
+import { AppWrapper } from './ContactsList/ContactsListStyled';
 import { getStatusContacts } from 'redux/selectors';
 import { useSelector } from 'react-redux';
+import { Notify } from 'services/Notify';
 
 
 export function App() {
-  // const dispatch = useDispatch();
-  // const filter = useSelector(getStatusFilter);
   const contacts = useSelector(getStatusContacts);
 
-
-
-
-
-  // const handleChange = e => {
-  //   const { value } = e.target;
-  //   dispatch(contactsFilter(value));
-  // };
-
-  // const onFilter = () => {
-  //   if (!filter) {
-  //     return contacts;
-  //   }
-
-  //   const filterToLowerCase = filter.toLowerCase();
-
-  //   return contacts.filter(({ name }) =>
-  //     name.toLowerCase().includes(filterToLowerCase)
-  //   );
-  // };
-
-
-// console.log(contacts)
   return (
-    <div>
+    <AppWrapper>
       <Title>Phonebook</Title>
       <Form/>
       <Title>Contacts</Title>
@@ -47,13 +22,8 @@ export function App() {
       ) : (
         <Title>Додайте свій перший контакт до записної книжки</Title>
       )}
-    </div>
+    </AppWrapper>
   );
 }
 
-
-Notiflix.Notify.init({
-  position: 'center-top',
-  timeout: 2000,
-  clickToClose: true,
-});
+  Notify();

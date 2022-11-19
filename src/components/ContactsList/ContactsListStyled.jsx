@@ -34,15 +34,16 @@ export const Button = styled.button`
 `;
 
 export const List = styled.ul`
-  display: block;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   list-style-type: none;
   margin-top: 50px;
+  margin-right: 340px;
 `;
 
 export const ListItem = styled.li`
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-bottom: 20px;
   font-size: 20px;
@@ -52,4 +53,10 @@ export const ListItem = styled.li`
 export const LabelText = styled.p`
 margin: 0px;
   margin-left: 20px;
+`
+
+export const AppWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
 `
