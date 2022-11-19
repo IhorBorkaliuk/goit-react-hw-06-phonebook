@@ -34,13 +34,22 @@ export const Button = styled.button`
 `;
 
 export const List = styled.ul`
-display: block;
+  display: block;
   text-align: center;
   list-style-type: none;
+  margin-top: 50px;
 `;
 
 export const ListItem = styled.li`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 500;
 `;
+
+export const LabelText = styled.p`
+margin: 0px;
+  margin-left: 20px;
+`
